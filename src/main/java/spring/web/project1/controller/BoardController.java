@@ -12,6 +12,12 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    @GetMapping(value = "/")
+    public String main(){
+        return "main";
+    }
+
+
     @GetMapping(value = "/board")
     public String board(Model model){
         model.addAttribute("board", boardService.getList());
