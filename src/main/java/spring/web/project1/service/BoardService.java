@@ -48,4 +48,8 @@ public class BoardService {
                 );
         return new BoardResDto(board);
     }
+
+    public int updateView(Long nno){
+        return boardRepository.updateView(nno);
+    }
 }

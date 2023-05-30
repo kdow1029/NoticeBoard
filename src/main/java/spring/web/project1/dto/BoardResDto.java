@@ -10,11 +10,13 @@ public class BoardResDto {
     private String title;
     private String content;
     private String writer;
+    private int view;
 
     public BoardResDto(Board entity){
         this.nno = entity.getNno();
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.writer = entity.getWriter();
+        this.view = entity.getView();
     }
 }

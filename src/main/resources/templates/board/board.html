@@ -18,7 +18,19 @@
             <th scope="col">제목</th>
             <th scope="col">작성자</th>
             <th scope="col">수정일자</th>
+            <th scope="col">조회수</th>
         </tr>
         </thead>
+
+        <tbody>
+        <tr th:each="board : ${boardList}">
+            <td th:text="${board.nno}">#</td>
+            <td th:text="${board.title}">제목</td>
+            <td th:text="${board.writer}">작성자</td>
+            <td th:text="${board.modifiedDate}">수정일자</td>
+            <td th:text="${board.view}">조회수</td>
+
+        </tr>
+        </tbody>
     </table>
 </div>

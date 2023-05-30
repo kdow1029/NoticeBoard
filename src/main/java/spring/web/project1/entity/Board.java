@@ -23,13 +23,17 @@ public class Board extends BaseTimeEntity {
     private String content;
 
     @Column(nullable = false)
-    private String writer;
+    private String writer ;
+
+    @Column(columnDefinition = "integer default 0" ,nullable = true)
+    private int view;
 
     @Builder
-    public Board(String title, String content, String writer){
+    public Board(String title, String content, String writer, int view){
         this.title = title;
         this.content = content;
         this.writer = writer;
+        this.view = view;
     }
 
     public void update(String title, String content){
