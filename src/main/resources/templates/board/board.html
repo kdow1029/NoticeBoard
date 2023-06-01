@@ -25,12 +25,15 @@
         <tbody>
         <tr th:each="board : ${boardList}">
             <td th:text="${board.nno}">#</td>
-            <td th:text="${board.title}">제목</td>
+            <td><a href="boardDtl.html" th:href="@{/board/post/view/{nno}(nno=${board.nno})}" th:text="${board.title}">제목</a></td>
             <td th:text="${board.writer}">작성자</td>
             <td th:text="${board.modifiedDate}">수정일자</td>
             <td th:text="${board.view}">조회수</td>
+
 
         </tr>
         </tbody>
     </table>
 </div>
+
+<!--  <{/board/post/(nno = ${board.nno})}    -->

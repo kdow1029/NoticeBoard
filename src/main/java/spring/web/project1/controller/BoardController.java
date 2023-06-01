@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import spring.web.project1.dto.BoardResDto;
 import spring.web.project1.entity.Board;
 import spring.web.project1.service.BoardService;
@@ -32,12 +33,20 @@ public class BoardController {
     }
 
     @GetMapping(value = "/board/post/{nno}")
-    public String boardDetail(@PathVariable Long nno, Model model){
+    public String boardUpdate(@PathVariable Long nno, Model model){
         BoardResDto resDto = boardService.findById(nno);
-        boardService.updateView(nno);
-        model.addAttribute("boards", resDto);
+        model.addAttribute("board", resDto);
 
         return "/board/update";
+    }
+
+    @GetMapping(value = "/board/post/view/{nno}")
+    public String boardDtl(@PathVariable Long nno, Model model){
+        BoardResDto resDto = boardService.findById(nno);
+        boardService.updateView(nno);
+        model.addAttribute("board", resDto);
+
+        return "/board/boardDtl";
     }
 
     @GetMapping(value = "/board/post")

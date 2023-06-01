@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layouts}">
+
+<div layout:fragment="content">
+    <table  class="table table-bordered">
+
+        <tr>
+            <th class="trth" >게시글 번호 #</th>
+            <td class="trtd" th:text="${board.nno}"></td>
+            <th class="trth">제목</th>
+            <td class="trtd" th:text="${board.title}"></td>
+        </tr>
+        <tr>
+            <th class="trth">작성자</th>
+            <td class="trtd" th:text="${board.writer}"></td>
+            <th class="trth">조회수</th>
+            <td class="trtd" th:text="${board.view}"></td>
+        </tr>
+        <tr>
+            <th class="trth">내용</th>
+            <td  colspan='3' th:text="${board.content}"></td>
+        </tr>
+    </table>
+    <div class="board-button">
+        <a href="update.html" th:href="@{/board/post/{nno}(nno=${board.nno})}">
+            <button  type="button" class="btn btn-primary">게시글 수정</button>
+        </a>
+    </div>
+    <table  class="table table-bordered">
+
+    </table>
+
+</div>
