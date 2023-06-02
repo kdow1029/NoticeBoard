@@ -44,8 +44,7 @@ public class BoardService {
 
     public BoardResDto findById(Long nno) {
         Board board = boardRepository.findById(nno).orElseThrow(
-                () -> new IllegalArgumentException("해당 게시글 없음")
-                );
+                () -> new IllegalArgumentException("해당 게시글 없음" + nno));
         return new BoardResDto(board);
     }
 

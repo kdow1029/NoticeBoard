@@ -2,6 +2,9 @@ package spring.web.project1.dto;
 
 import lombok.Getter;
 import spring.web.project1.entity.Board;
+import spring.web.project1.entity.Comment;
+
+import java.util.List;
 
 @Getter
 public class BoardResDto {
@@ -11,12 +14,14 @@ public class BoardResDto {
     private String content;
     private String writer;
     private int view;
+    private List<Comment> commentList;
 
-    public BoardResDto(Board entity){
-        this.nno = entity.getNno();
-        this.title = entity.getTitle();
-        this.content = entity.getContent();
-        this.writer = entity.getWriter();
-        this.view = entity.getView();
+    public BoardResDto(Board board){
+        this.nno = board.getNno();
+        this.title = board.getTitle();
+        this.content = board.getContent();
+        this.writer = board.getWriter();
+        this.view = board.getView();
+        this.commentList = board.getCommentList();
     }
 }
