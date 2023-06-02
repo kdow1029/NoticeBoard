@@ -9,7 +9,8 @@ let comment = {
     commentSave: function () {
         let data = {
             comment: $('#comment').val(),
-            writer: $('#writer').val()
+            writer: $('#writer').val(),
+            boardNNO: $('#nno').val()
         };
 
         let nno = $('#nno').val();
