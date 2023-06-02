@@ -3,6 +3,8 @@ package spring.web.project1.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "board")
@@ -10,9 +12,11 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Board extends BaseTimeEntity {
 
     @Id
+    @Column(name = "board_nno")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long nno;
 
@@ -28,13 +32,16 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
-    @Builder
-    public Board(String title, String content, String writer, int view){
-        this.title = title;
-        this.content = content;
-        this.writer = writer;
-        this.view = view;
-    }
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Comment> commentList = new ArrayList<>();
+
+//    @Builder
+//    public Board(String title, String content, String writer, int view){
+//        this.title = title;
+//        this.content = content;
+//        this.writer = writer;
+//        this.view = view;
+//    }
 
     public void update(String title, String content){
         this.title = title;
