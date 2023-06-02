@@ -29,11 +29,16 @@
         </a>
     </div>
     <div class="comment-button">
-        <a href="/board/post/comment">
+        <a href="comment.html" th:href="@{/board/post/{nno}/comment (nno=${board.nno})}">
             <button  type="button" class="btn btn-primary">댓글 쓰기</button>
         </a>
     </div>
 
-    <span th:text="${comments.}"></span>
+
+    <span>HI</span>
+    <div th:each="comment : ${commentList}">
+        <span th:text="${comment.comments}"></span>
+        <span th:text="${comment.writer}"></span>
+    </div>
 
 </div>
