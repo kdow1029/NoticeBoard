@@ -25,20 +25,20 @@
     </table>
     <div class="board-button">
         <a href="update.html" th:href="@{/board/post/{nno}(nno=${board.nno})}">
-            <button  type="button" class="btn btn-primary">게시글 수정</button>
+            <button  type="button" class="btn btn-secondary">게시글 수정</button>
         </a>
     </div>
     <div class="comment-button">
         <a href="comment.html" th:href="@{/board/post/{nno}/comment (nno=${board.nno})}">
-            <button  type="button" class="btn btn-primary">댓글 쓰기</button>
+            <button  type="button" class="btn btn-info">댓글 쓰기</button>
         </a>
     </div>
 
-
-    <span>HI</span>
-    <div th:each="comment : ${commentList}">
+    <div class="comments" th:each="comment : ${commentList}">
         <span th:text="${comment.comments}"></span>
-        <span th:text="${comment.writer}"></span>
+        <a href="commentUpdate.html">
+            <i class="bi bi-clipboard"></i>
+        </a>
     </div>
 
 </div>

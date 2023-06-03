@@ -33,7 +33,7 @@ public class Board extends BaseTimeEntity {
     private int view;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    private List<Comment> commentList;
+    private List<Comment> commentList = new ArrayList<>();
 
 //    @Builder
 //    public Board(String title, String content, String writer, int view){
