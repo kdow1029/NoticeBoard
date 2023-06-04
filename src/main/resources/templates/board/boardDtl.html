@@ -35,8 +35,10 @@
     </div>
 
     <div class="comments" th:each="comment : ${commentList}">
-        <span th:text="${comment.comments}"></span>
-        <a href="commentUpdate.html">
+        <span th:text="${comment.comment}"></span>
+        <span th:text="${comment.commentWriter}"></span>
+
+        <a href="commentUpdate.html" th:href="@{/board/post/{nno}/comment/{id} (nno=${board.nno}, id=${comment.id})}">
             <i class="bi bi-clipboard"></i>
         </a>
     </div>

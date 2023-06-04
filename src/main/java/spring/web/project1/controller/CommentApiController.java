@@ -26,8 +26,8 @@ public class CommentApiController {
     }
 
     @DeleteMapping(value = "api/post/{nno}/comment/{id}")
-    public Long delete(@PathVariable Long nno, @PathVariable Long id, @RequestBody CommentUpdateDto commentUpdateDto){
-        commentService.delete(id);
+    public Long delete(@PathVariable Long nno, @PathVariable Long id){
+        commentService.delete(nno, id);
         return id;
     }
 }

@@ -47,9 +47,9 @@ public class BoardController {
 
         if (commentList != null && !commentList.isEmpty())
         {
-            model.addAttribute("commentList", commentList);
+            model.addAttribute("commentList", commentList); // 댓글
         }
-        boardService.updateView(nno);
+        boardService.updateView(nno); //조회수
         model.addAttribute("board", resDto);
 
         return "/board/boardDtl";

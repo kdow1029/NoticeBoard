@@ -7,14 +7,14 @@ import spring.web.project1.entity.Comment;
 public class CommentResDto {
 
     private Long id;
-    private String comments;
-    private String writer;
+    private String comment;
+    private String commentWriter;
     private Long nno;
 
     public CommentResDto(Comment comment){
         this.id = comment.getId();
-        this.comments = comment.getComment();
-        this.writer = comment.getBoard().getWriter();
+        this.comment = comment.getComment();
+        this.commentWriter = comment.getCommentWriter();
         this.nno = comment.getBoard().getNno();
     }
 }

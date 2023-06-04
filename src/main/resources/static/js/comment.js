@@ -4,19 +4,23 @@ let comment = {
         $('#btn-comment-save').on('click', function () {
             _this.commentSave();
         });
+        $('#btn-comment-update').on('click', function () {
+            _this.commentUpdate();
+        });
+        $('#btn-comment-delete').on('click', function () {
+            _this.commentDelete();
+        });
 
     },
     commentSave: function () {
+        let nno = $('#nno').val();
         let data = {
             comment: $('#comment').val(),
-            // writer: $('#writer').val(),
+            commentWriter: $('#commentWriter').val(),
             board: {
-                nno: $('#nno').val()
+                nno: nno
             }
         };
-
-        let nno = $('#nno').val();
-
         $.ajax({
             type: 'POST',
             url: '/api/post/' + nno + '/comment' ,
@@ -25,11 +29,51 @@ let comment = {
             data: JSON.stringify(data),
         }).done(function () {
             alert("등록");
-            window.location.href = "/board";
+            window.location.href = "/board/post/view/" + nno;
         }).fail(function () {
             alert("실패");
             console.log(data)
         })
+    },
+    commentUpdate: function () {
+        let nno = $('#nno').val();
+        let id = $('#commentId').val();
+        let data = {
+            comment: $('#comment').val(),
+            commentWriter: $('#commentWriter').val(),
+            board: {
+                nno: nno
+            }
+        };
+        $.ajax({
+            type: 'PUT',
+            url: '/api/post/' + nno + '/comment/' + id ,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8,',
+            data: JSON.stringify(data),
+        }).done(function () {
+            alert("등록");
+            window.location.href = "/board/post/view/" + nno;
+        }).fail(function () {
+            alert("실패");
+            console.log(data)
+        })
+    },
+    commentDelete: function (){
+        let nno = $('#nno').val();
+        let id = $('#commentId').val();
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/post/' + nno + '/comment/' + id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8,',
+        }).done(function() {
+            alert("삭제");
+            window.location.href = "/board/post/view/" + nno;
+        }).fail(function (){
+            alert("실패");
+        })
     }
+
 };
 comment.init();

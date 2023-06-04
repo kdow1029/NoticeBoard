@@ -13,12 +13,16 @@ import spring.web.project1.entity.Comment;
 @Builder
 public class CommentReqDto {
 
+    private Long id;
     private String comment;
+    private String commentWriter;
     private Board board;
 
     public Comment toEntity(){
         return Comment.builder()
+                .id(id)
                 .comment(comment)
+                .commentWriter(commentWriter)
                 .board(board)
                 .build();
     }

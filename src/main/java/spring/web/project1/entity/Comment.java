@@ -22,6 +22,9 @@ public class Comment extends BaseTimeEntity {
     @Column(nullable = false)
     private String comment;
 
+    @Column(nullable = false)
+    private String commentWriter;
+
     @ManyToOne
     @JoinColumn(name = "board_nno")
     @ToString.Exclude

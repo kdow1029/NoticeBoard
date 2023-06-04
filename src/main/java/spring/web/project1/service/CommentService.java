@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import spring.web.project1.dto.CommentReqDto;
 import spring.web.project1.dto.CommentResDto;
 import spring.web.project1.dto.CommentUpdateDto;
+import spring.web.project1.entity.Board;
 import spring.web.project1.entity.Comment;
 import spring.web.project1.repository.CommentRepository;
 
@@ -31,6 +32,12 @@ public class CommentService {
         return id;
 
     }
+    public void delete(Long nno,Long id){
+        boardService.findById(nno);
+        Comment comment = commentRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("없음"));
+        commentRepository.delete(comment);
+    }
 
     public CommentResDto findById(Long id) {
         Comment comment =  commentRepository.findById(id).orElseThrow(
@@ -39,9 +46,5 @@ public class CommentService {
         return new CommentResDto(comment);
     }
 
-    public void delete(Long id){
-        Comment comment = commentRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("없음"));
-        commentRepository.delete(comment);
-    }
+
 }
