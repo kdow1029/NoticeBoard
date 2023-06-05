@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import spring.web.project1.dto.BoardResDto;
+import spring.web.project1.dto.CommentResDto;
 import spring.web.project1.entity.Board;
-import spring.web.project1.entity.Comment;
 import spring.web.project1.service.BoardService;
 
 import java.util.List;
@@ -43,13 +43,13 @@ public class BoardController {
     @GetMapping(value = "/board/post/view/{nno}")
     public String boardDtl(@PathVariable Long nno, Model model){
         BoardResDto resDto = boardService.findById(nno);
-        List<Comment> comments = resDto.getCommentList();
+        List<CommentResDto> commentList = resDto.getCommentList();
 
-        if (comments != null && !comments.isEmpty())
+        if (commentList != null && !commentList.isEmpty())
         {
-            model.addAttribute("comments", comments);
+            model.addAttribute("commentList", commentList); // 댓글
         }
-        boardService.updateView(nno);
+        boardService.updateView(nno); //조회수
         model.addAttribute("board", resDto);
 
         return "/board/boardDtl";

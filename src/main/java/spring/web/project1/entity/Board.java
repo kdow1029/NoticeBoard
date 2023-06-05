@@ -32,7 +32,7 @@ public class Board extends BaseTimeEntity {
     @Column(columnDefinition = "integer default 0" ,nullable = true)
     private int view;
 
-    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Comment> commentList = new ArrayList<>();
 
 //    @Builder

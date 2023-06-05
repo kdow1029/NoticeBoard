@@ -19,11 +19,18 @@ public class Comment extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(nullable = false)
     private String comment;
+
+    @Column(nullable = false)
+    private String commentWriter;
 
     @ManyToOne
     @JoinColumn(name = "board_nno")
+    @ToString.Exclude
     private Board board;
 
+    public void update(String comment){
+        this.comment = comment;
+    }
 }

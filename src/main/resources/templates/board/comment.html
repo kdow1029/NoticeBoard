@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layouts}">
+
+<div layout:fragment="content">
+
+    <h1>댓글 등록</h1>
+
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <form>
+                <div>
+                    <input type="hidden" id="nno" th:value="${board.nno}">
+                </div>
+                <div class="form-group">
+                    <label for="commentWriter"> 작성자 </label>
+                    <input type="text" class="form-control" id="commentWriter" placeholder="작성자를 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label for="comment"> 댓글 내용 </label>
+                    <textarea class="form-control" id="comment" placeholder="내용을 입력하세요"></textarea>
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary" id="btn-comment-save"> 등록 </button>
+            <a href="boardDtl.html" th:href="@{/board/post/view/{nno} (nno=${board.nno})}" role="button" class="btn btn-secondary"> 취소 </a>
+        </div>
+    </div>
+</div>
