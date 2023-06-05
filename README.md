@@ -13,6 +13,10 @@
   * 2주차 - 로그인 기능
 
 
+* 보충 사항
+  * 게시판 대댓글 기능 구현 중
+
+
 * 사용 기술
     * Spring-boot 2.7.11, JPA, Thymeleaf, H2-database, Mysql
 
