@@ -15,6 +15,7 @@ public class CommentApiController {
 
     private final CommentService commentService;
 
+
     @PostMapping(value = "/api/post/{nno}/comment")
     public Long save(@PathVariable Long nno, @RequestBody CommentReqDto commentReqDto){
         return commentService.commentSave(nno, commentReqDto);
