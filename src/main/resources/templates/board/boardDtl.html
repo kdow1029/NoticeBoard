@@ -34,6 +34,18 @@
         </a>
     </div>
 
+    <div class="commentcount">
+        <i class="bi bi-chat-dots" style="font-size: 2rem"></i>
+        <span th:if="${#lists.size(board.commentList) <= 0}">
+        <span>0</span>
+        </span>
+        <span
+            th:if="${#lists.size(board.commentList) > 0}"
+            th:text="${#lists.size(board.commentList)}">
+        </span>
+    </div>
+
+
     <div class="comments" th:each="comment : ${commentList}">
         <span th:text="${comment.comment}"></span>
         <span th:text="${comment.commentWriter}"></span>
