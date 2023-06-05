@@ -6,8 +6,13 @@
 }
 .comment-button{
     position: absolute;
+    margin-top: 15px;
     right: 0;
 }
+.commentcount{
+    margin-top: 15px;
+}
+
 .comments{
     border-top: 1px solid rgba(0,0,0,0.5);
     margin-top: 50px;
